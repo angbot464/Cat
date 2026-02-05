@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>可愛貓咪頁面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: black;
+        }
+        .stars {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkling 5s infinite;
+        }
+        @keyframes twinkling {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>這是一隻可愛的貓咪！</h1>
     <img src="https://placekitten.com/400/300" alt="可愛貓咪">
+    <script>
+        // 動態添加星星到背景
+        const qty = 100; // 星星數量
+        const body = document.body;
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'stars';
+            star.style.top = Math.random() * window.innerHeight + 'px';
+            star.style.left = Math.random() * window.innerWidth + 'px';
+            body.appendChild(star);
+        }
+
+        for (let i = 0; i < qty; i++) {
+            createStar();
+        }
+    </script>
 </body>
 </html>
